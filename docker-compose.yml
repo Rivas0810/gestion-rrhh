@@ -1,0 +1,41 @@
+services:
+
+  php:
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    ports:
+      - "8082:8000"
+    volumes:
+      - ./app:/var/www/html:z
+    
+    command: symfony server:start --no-tls --allow-http --port=8000 --listen-ip=0.0.0.0
+    
+    depends_on:
+      - mysql
+    networks:
+      - gestion_rrhh
+
+
+  mysql:
+    build:
+      context: .
+      dockerfile: .docker/mysql/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - gestion_rrhh
+
+networks:
+  gestion_rrhh:
+
+volumes:
+  mysql_data:

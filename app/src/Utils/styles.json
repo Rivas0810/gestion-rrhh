@@ -1,0 +1,105 @@
+  {
+    "design_system": {
+      "name": "Sistema RR.HH UI Tokens",
+      "typography": {
+        "font_family": "'Roboto', Arial, Helvetica, sans-serif",
+        "font_sizes": {
+          "navigation_title": "11px",
+          "sidebar_subtitle": "12px",
+          "sidebar_footer": "12px",
+          "navigation_link": "14px",
+          "topbar_title": "18px",
+          "sidebar_title": "20px"
+        },
+        "font_weights": {
+          "regular": 400,
+          "medium": 500,
+          "semibold": 600
+        },
+        "letter_spacing": {
+          "navigation_title": "0.08em"
+        }
+      },
+      "colors": {
+        "canvas": "#F8FAFC",
+        "surface": "#FFFFFF",
+        "text": {
+          "primary": "#0F172A",
+          "secondary": "#64748B"
+        },
+        "border": "#E2E8F0",
+        "brand": {
+          "primary": "#4F46E5",
+          "primary_hover": "#4338CA",
+          "success": "#059669",
+          "purple": "#7C3AED"
+        },
+        "sidebar": {
+          "background": "#0F172A",
+          "hover": "#1E293B",
+          "text": "#CBD5E1",
+          "text_active": "#FFFFFF",
+          "muted": "#64748B"
+        }
+      },
+      "layout": {
+        "sidebar_width": "250px",
+        "topbar_height": "64px",
+        "border_radius": {
+          "navigation_link": "6px",
+          "card": "8px"
+        },
+        "spacing": {
+          "topbar_padding": "0 30px",
+          "content_padding": "30px",
+          "card_padding": "24px"
+        }
+      },
+      "components": {
+        "sidebar": {
+          "position": "fixed",
+          "background_color": "var(--color-sidebar)",
+          "header": {
+            "padding": "24px 20px",
+            "border_bottom": "1px solid var(--color-sidebar-hover)"
+          },
+          "footer": {
+            "padding": "16px 20px",
+            "border_top": "1px solid var(--color-sidebar-hover)"
+          }
+        },
+        "navigation": {
+          "link_padding": "11px 12px",
+          "active_link": {
+            "background_color": "var(--color-primary)",
+            "color": "#FFFFFF",
+            "font_weight": 500
+          },
+          "hover_link": {
+            "background_color": "var(--color-sidebar-hover)",
+            "color": "#FFFFFF"
+          }
+        },
+        "card": {
+          "background_color": "var(--color-surface)",
+          "border": "1px solid var(--color-border)",
+          "border_radius": "8px",
+          "padding": "24px"
+        }
+      },
+      "breakpoints": {
+        "tablet_max_width": "768px",
+        "tablet_styles": {
+          "sidebar_width": "200px",
+          "content_padding": "20px"
+        },
+        "mobile_max_width": "600px",
+        "mobile_styles": {
+          "app_display": "block",
+          "sidebar_position": "relative",
+          "sidebar_width": "100%",
+          "main_margin_left": "0"
+        }
+      }
+    }
+  }

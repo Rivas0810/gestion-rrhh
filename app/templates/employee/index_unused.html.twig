@@ -1,0 +1,190 @@
+{# templates/employees/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% set title_name = 'Empleados' %}
+
+
+{# =========================
+   TITLE
+========================= #}
+
+{% block title %}
+    {{ title_name }}
+{% endblock %}
+
+
+{# =========================
+   PAGE TITLE
+========================= #}
+
+{% block page_title %}
+    {{ title_name }}
+{% endblock %}
+
+
+{# =========================
+   STYLESHEETS
+========================= #}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <link
+        rel="stylesheet"
+        href="{{ asset('css/crud.css') }}"
+    >
+
+{% endblock %}
+
+
+{# =========================
+   BODY
+========================= #}
+
+{% block body %}
+
+    <div class="page-header">
+
+        <div class="page-header-content">
+
+            <h1>
+                {{ title_name }}
+            </h1>
+
+            <p>
+                Administra los empleados registrados en el sistema.
+            </p>
+
+        </div>
+
+
+        <a
+            href="#"
+            class="btn btn-primary"
+        >
+            + Crear empleado
+        </a>
+
+    </div>
+
+
+    <div class="table-card">
+
+        <div class="table-header">
+
+            <h2>
+                Empleados
+            </h2>
+
+            {% if employees is defined %}
+
+                <span>
+                    {{ employees|length }}
+
+                    {{ employees|length == 1
+                        ? 'registro'
+                        : 'registros'
+                    }}
+                </span>
+
+            {% endif %}
+
+        </div>
+
+
+        {% if employees is defined and employees|length > 0 %}
+
+            <div class="table-container">
+
+                <table class="crud-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Departamento</th>
+                            <th>Acciones</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for employee in employees %}
+
+                            <tr>
+
+                                <td>
+                                    <span class="record-id">
+                                        {{ employee.id }}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    {{ employee.name }}
+                                </td>
+
+                                <td>
+                                    {{ employee.email }}
+                                </td>
+
+                                <td>
+                                    {{ employee.phone }}
+                                </td>
+
+                                <td>
+                                    {{ employee.department.name }}
+                                </td>
+
+                                <td>
+
+                                    <div class="actions">
+
+                                        <a
+                                            href="#"
+                                            class="action-btn action-edit"
+                                        >
+                                            Editar
+                                        </a>
+
+                                        <a
+                                            href="#"
+                                            class="action-btn action-delete"
+                                        >
+                                            Eliminar
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        {% else %}
+
+            {% include 'components/empty_state.html.twig' with {
+                title: 'No hay empleados registrados',
+                message: 'Todavía no tienes ningún empleado registrado. Crea el primero para comenzar a gestionar tu personal.',
+                action_url: '#',
+                action_label: 'Crear primer empleado'
+            } %}
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}

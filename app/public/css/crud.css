@@ -1,0 +1,276 @@
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+.page-header-content h1 {
+    margin: 0;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    color: var(--color-text-primary);
+}
+
+.page-header-content p {
+    margin: 6px 0 0;
+
+    font-size: 14px;
+
+    color: var(--color-text-secondary);
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+
+    padding: 0 16px;
+
+    border: none;
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+
+/* =========================
+   TABLE CARD
+========================= */
+
+.table-card {
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   TABLE HEADER
+========================= */
+
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 24px;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table-header h2 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    color: var(--color-text-primary);
+}
+
+.table-header span {
+    font-size: 13px;
+
+    color: var(--color-text-secondary);
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.crud-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.crud-table th {
+    padding: 13px 24px;
+
+    background-color: #F8FAFC;
+
+    border-bottom: 1px solid var(--color-border);
+
+    text-align: left;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    color: var(--color-text-secondary);
+
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.crud-table td {
+    padding: 15px 24px;
+
+    border-bottom: 1px solid var(--color-border);
+
+    font-size: 14px;
+
+    color: var(--color-text-primary);
+}
+
+.crud-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.crud-table tbody tr:hover {
+    background-color: #F8FAFC;
+}
+
+
+/* =========================
+   RECORD ID
+========================= */
+
+.record-id {
+    color: var(--color-text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 32px;
+
+    padding: 0 10px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+
+    background-color: var(--color-surface);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* =========================
+   EDIT
+========================= */
+
+.action-edit {
+    color: var(--color-primary);
+}
+
+.action-edit:hover {
+    background-color: #EEF2FF;
+
+    border-color: #C7D2FE;
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+.action-delete {
+    color: #DC2626;
+}
+
+.action-delete:hover {
+    background-color: #FEF2F2;
+
+    border-color: #FECACA;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .page-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 16px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .table-header {
+        padding: 18px;
+    }
+
+    .crud-table th,
+    .crud-table td {
+        padding: 13px 18px;
+    }
+}

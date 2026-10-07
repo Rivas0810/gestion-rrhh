@@ -1,0 +1,72 @@
+{# templates/components/empty_state.html.twig #}
+
+<style>
+    .empty-state {
+        padding: 60px 24px;
+        text-align: center;
+    }
+
+    .empty-state-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background-color: #EEF2FF;
+        color: var(--color-primary);
+
+        font-size: 22px;
+    }
+
+    .empty-state h3 {
+        margin: 0 0 8px;
+
+        font-size: 17px;
+        font-weight: 500;
+
+        color: var(--color-text-primary);
+    }
+
+    .empty-state p {
+        max-width: 450px;
+
+        margin: 0 auto 20px;
+
+        font-size: 14px;
+        line-height: 1.5;
+
+        color: var(--color-text-secondary);
+    }
+</style>
+
+<div class="empty-state">
+
+    <div class="empty-state-icon">
+        +
+    </div>
+
+    <h3>
+        {{ title|default('No hay registros') }}
+    </h3>
+
+    <p>
+        {{ message|default('No hay registros disponibles.') }}
+    </p>
+
+    {% if action_url is defined and action_label is defined %}
+
+        <a
+            href="{{ action_url }}"
+            class="btn btn-primary"
+        >
+            {{ action_label }}
+        </a>
+
+    {% endif %}
+
+</div>
