@@ -4,17 +4,17 @@ dashboard_index:
     defaults:
         template: dashboard.html.twig
 
-employees_index:
-    path: /employees
-    controller: App\Controller\EmployeeController::index
+# employees_index:
+#     path: /employees
+#     controller: App\Controller\EmployeeController::index
     
-departments_index:
-    path: /departments
-    controller: App\Controller\DepartmentController::index
+# departments_index:
+#     path: /departments
+#     controller: App\Controller\DepartmentController::index
 
-attendance_records_index:
-    path: /attendance_records
-    controller: App\Controller\AttendanceRecordsController::index
+# attendance_records_index:
+#     path: /attendance_records
+#     controller: App\Controller\AttendanceRecordsController::index
 
 settings_index:
     path: /settings

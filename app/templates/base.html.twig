@@ -100,32 +100,32 @@
 
             {# Empleados #}
 
-            <a
+            {# <a
                 href="{{ path('employees_index') }}"
                 class="{{ app.request.attributes.get('_route') starts with 'employees_' ? 'active' : '' }}"
             >
                 Empleados
-            </a>
+            </a> #}
 
 
             {# Departamentos #}
 
-            <a
+            {# <a
                 href="{{ path('departments_index') }}"
                 class="{{ app.request.attributes.get('_route') starts with 'departments_' ? 'active' : '' }}"
             >
                 Departamentos
-            </a>
+            </a> #}
 
 
             {# Asistencias #}
 
-            <a
+            {# <a
                 href="{{ path('attendance_records_index') }}"
                 class="{{ app.request.attributes.get('_route') starts with 'attendance_records_' ? 'active' : '' }}"
             >
                 Registro de Asistencias
-            </a>
+            </a> #}
 
 
             <div
