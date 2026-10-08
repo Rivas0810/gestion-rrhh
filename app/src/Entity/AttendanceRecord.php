@@ -63,4 +63,9 @@ class AttendanceRecord
 
         return $this;
     }
+
+    // public function __toString(): string
+    // {
+    //     return $this->name;
+    // }
 }

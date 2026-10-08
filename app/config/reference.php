@@ -1535,6 +1535,18 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     filter_persister?: scalar|Param|null, // Default: "sonata.admin.filter_persister.session"
  *     show_mosaic_button?: bool|Param, // Show mosaic button on all admin screens // Default: true
  * }
+ * @psalm-type SonataDoctrineOrmAdminConfig = array{
+ *     entity_manager?: scalar|Param|null, // Default: null
+ *     audit?: array{
+ *         force?: bool|Param, // Default: true
+ *     },
+ *     templates?: array{
+ *         types?: array{
+ *             list?: array<string, scalar|Param|null>,
+ *             show?: array<string, scalar|Param|null>,
+ *         },
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1551,6 +1563,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     sonata_block?: SonataBlockConfig,
  *     knp_menu?: KnpMenuConfig,
  *     sonata_admin?: SonataAdminConfig,
+ *     sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1568,6 +1581,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_block?: SonataBlockConfig,
  *         knp_menu?: KnpMenuConfig,
  *         sonata_admin?: SonataAdminConfig,
+ *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1585,6 +1599,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_block?: SonataBlockConfig,
  *         knp_menu?: KnpMenuConfig,
  *         sonata_admin?: SonataAdminConfig,
+ *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1602,6 +1617,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         sonata_block?: SonataBlockConfig,
  *         knp_menu?: KnpMenuConfig,
  *         sonata_admin?: SonataAdminConfig,
+ *         sonata_doctrine_orm_admin?: SonataDoctrineOrmAdminConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

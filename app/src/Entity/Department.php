@@ -21,7 +21,7 @@ class Department
         mappedBy: 'department',
         targetEntity: Employee::class
     )]
-    private Collection $employees;
+    private Collection $employee;
 
     public function getId(): ?int
     {
@@ -42,6 +42,22 @@ class Department
 
     public function getEmployees(): Collection
     {
-        return $this->employees;
+        return $this->employee;
+    }
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+    public function getEmployeesList(): string
+    {
+        $employees = [];
+
+        foreach ($this->employee as $empl) {
+            $employees[] = $empl->getId() . ' - ' . $empl->getName();
+        }
+
+        return $employees
+            ? implode("\n", $employees)
+            : 'Sin empleados registrados';
     }
 }

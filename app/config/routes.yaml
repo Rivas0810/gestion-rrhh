@@ -10,5 +10,5 @@
 controllers:
     resource: routing.controllers
 
-web:
-    resource: routes/web.yml
+# web:
+#     resource: routes/web.yml

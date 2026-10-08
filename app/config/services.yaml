@@ -22,3 +22,35 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+    App\Admin\DepartmentAdmin:
+        tags:
+            - name: sonata.admin
+              model_class: App\Entity\Department
+              manager_type: orm
+              group: Recursos Humanos
+              label: Departamentos
+
+    App\Admin\EmployeeAdmin:
+        tags:
+            - name: sonata.admin
+              model_class: App\Entity\Employee
+              manager_type: orm
+              group: Recursos Humanos
+              label: Empleados
+
+    App\Admin\AttendanceRecordAdmin:
+        tags:
+            - name: sonata.admin
+              model_class: App\Entity\AttendanceRecord
+              manager_type: orm
+              group: Recursos Humanos
+              label: Registro de Asistencia
+
+    # App\Admin\DashBoardAdmin:
+    #     tags:
+    #         - name: sonata.admin
+    #           manager_type: orm
+    #           label: DashBoard
+
+
+
