@@ -46,8 +46,12 @@ class Department
     }
     public function __toString(): string
     {
-        return $this->name;
+        if (trim($this->name) !== '') {
+            return $this->name;
+        }
+        return 'Departamento';
     }
+
     public function getEmployeesList(): string
     {
         $employees = [];

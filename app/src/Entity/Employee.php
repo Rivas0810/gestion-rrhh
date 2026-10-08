@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\EmployeeRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: EmployeeRepository::class)]
 class Employee
@@ -33,12 +32,6 @@ class Employee
         targetEntity: AttendanceRecord::class
         )]
     private Collection $AttendanceRecord;
-
-    //     public function __construct()
-    // {
-    //     $this->AttendanceRecord = new ArrayCollection();
-    // }
-
 
     #[ORM\Column(length:10, nullable: true)]
     private ?string $employee_identifier = null;
@@ -113,7 +106,10 @@ class Employee
     }
     public function __toString(): string
     {
+        if (trim($this->name) !== '') {
         return $this->name;
+        }
+        return 'Empleado';
     }
 
     public function getAttendanceRecordList(): string
@@ -121,8 +117,16 @@ class Employee
         $attendance_records = [];
 
         foreach ($this->AttendanceRecord as $attendance) {
-            $entry_time = $attendance->getEntryTime()->format('d M Y H:i:s');
-            $exit_time = $attendance->getExitTime()->format('d M Y H:i:s');
+            $entry_time = $attendance->getEntryTime();
+            $exit_time = $attendance->getExitTime();
+
+            $entry_time = $entry_time !== null
+                ? $entry_time->format('d M Y H:i:s')
+                : 'Hora entrada no asignada';
+
+            $exit_time = $exit_time !== null
+                ? $exit_time->format('d M Y H:i:s')
+                : 'Hora salida no asignada';
 
             $attendance_records[] = $entry_time . ' - ' . $exit_time;
         }
@@ -131,23 +135,4 @@ class Employee
             ? implode("\n", $attendance_records)
             : 'Sin entradas ni salidas registradas';
     }
-
-    //BUSINESS LOGIC: Employees can't be eliminated when they have attendance records in the database
-//     public function canBeDeleted(): bool
-//     {
-//         return $this->AttendanceRecord->isEmpty();
-//     }
-
-//     public function getDeletionError(): ?string
-//     {
-//         if (!$this->AttendanceRecord->isEmpty()) {
-//             return sprintf(
-//                 'No se puede eliminar al empleado "%s" porque tiene %d registro(s) de asistencia.',
-//                 $this->name,
-//                 $this->AttendanceRecord->count()
-//             );
-//         }
-
-//         return null;
-//     }
 }

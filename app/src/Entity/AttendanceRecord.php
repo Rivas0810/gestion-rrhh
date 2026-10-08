@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AttendanceRecordRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AttendanceRecordRepository::class)]
 class AttendanceRecord
@@ -16,12 +17,18 @@ class AttendanceRecord
     #[ORM\Column(nullable: true)]
     private ?\DateTime $entry_time = null;
 
+    #[Assert\GreaterThanOrEqual(propertyPath: 'entry_time' , message: 'La fecha de salida debe ser posterior a la fecha de entrada.')]
     #[ORM\Column(nullable: true)]
     private ?\DateTime $exit_time = null;
 
     #[ORM\ManyToOne(inversedBy: 'AttendanceRecord')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Employee $employee = null;
+    public function __construct()
+    {
+        $this->entry_time = new \DateTime('today');
+        
+    }
 
     public function getId(): ?int
     {
@@ -64,8 +71,13 @@ class AttendanceRecord
         return $this;
     }
 
-    // public function __toString(): string
-    // {
-    //     return $this->name;
-    // }
+    public function __toString(): string
+    {
+        if (trim($this->employee) !== '') {
+            return $this->employee->__toString();
+        }
+        return 'Registro de Asistencia';
+    }
+
+    
 }

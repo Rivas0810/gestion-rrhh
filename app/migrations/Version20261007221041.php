@@ -20,12 +20,12 @@ final class Version20261007221041 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE employee ADD employee_identfier VARCHAR(10) DEFAULT NULL');
+        $this->addSql('ALTER TABLE employee ADD employee_identifier VARCHAR(10) DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE employee DROP employee_identfier');
+        $this->addSql('ALTER TABLE employee DROP employee_identifier');
     }
 }
